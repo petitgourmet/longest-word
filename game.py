@@ -1,9 +1,10 @@
 # pylint: disable=missing-docstring
 # pylint: disable=too-few-public-methods
 
+import pip._vendor.requests
 import string
 import random
-import requests
+
 
 class Game:
 
@@ -32,7 +33,7 @@ class Game:
 
     @staticmethod
     def __check_dictionary(word):
-        response = requests.get(
+        response = pip._vendor.requests.get(
             f"https://wagon-dictionary.herokuapp.com/{word}")
         json_response = response.json()
         return json_response['found']
