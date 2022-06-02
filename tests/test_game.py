@@ -33,3 +33,11 @@ class TestGame(unittest.TestCase):
         self.assertEqual(
             new_game.grid,
             list('KWEUEAKRZ'))  # Make sure the grid remained untouched
+
+
+    # test unkonwn
+
+    def test_unknown_word_is_invalid(self):
+        new_game = Game()
+        new_game.grid = list('KWIENFUQW')  # Force the grid to a test case:
+        self.assertIs(new_game.is_valid('FEUN'), False)
